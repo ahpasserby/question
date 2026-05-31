@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "question",
+  "version": "0.0.1",
+  "description": "v0 测试版",
+  "author": "Sarzn",
+  "action": {
+    "default_icon": {
+      "16": "icon/icon.png",
+      "32": "icon/icon.png",
+      "48": "icon/icon.png",
+      "64": "icon/icon.png",
+      "128": "icon/icon.png"
+    },
+    "default_popup": "src/popup.html"
+  },
+  "icons": {
+    "16": "icon/icon.png",
+    "32": "icon/icon.png",
+    "48": "icon/icon.png",
+    "64": "icon/icon.png",
+    "128": "icon/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.bilibili.com/video/*"
+      ],
+      "css": [
+        "src/mystyles.css" 
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false,
+      "match_about_blank": false,
+      "world": "ISOLATED"
+    }
+  ]
+
+}
