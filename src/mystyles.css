@@ -1,0 +1,7 @@
+#plugin-question-btn {
+  color: var(--text2);
+  font-size: 13px;
+  font-family: PingFang SC, HarmonyOS_Regular, Helvetica Neue, Microsoft YaHei, sans-serif !important;
+  cursor: pointer;
+  margin-left: 8px;
+}
