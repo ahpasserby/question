@@ -1,7 +1,37 @@
-#plugin-question-btn {
+/*#plugin-question-btn {
   color: var(--text2);
   font-size: 13px;
   font-family: PingFang SC, HarmonyOS_Regular, Helvetica Neue, Microsoft YaHei, sans-serif !important;
   cursor: pointer;
   margin-left: 8px;
+}*/
+
+/* 线性 spin(测试)
+@keyframes q-spin {
+  from { transform: rotate(0deg);}
+  to { transform: rotate(360deg);}
+}
+.q-spinning {
+  animation: q-spin 0.6s linear;
+}*/
+
+@keyframes q-toast-float {
+  /* 中心偏下、透明 */
+  0% {
+    transform: translate(-50%, 40px);
+    opacity: 0;
+  }
+  /* 升到中心、显现 */
+  25% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  /* 继续上飘、淡出 */
+  100% {
+    transform: translate(-50%, -60px);
+    opacity: 0;
+  }
+}
+.q-toast-floatting {
+  animation: q-toast-float 1.5s ease-out;
 }
