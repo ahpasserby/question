@@ -59,6 +59,8 @@ const timer = setInterval(() => {
       box.appendChild(btn);
       console.log("按钮插入完毕!结束轮询...");
       clearInterval(timer);
+      // 视频疑惑数量查询
+      countQuestionDanmaku();
       // 事件绑定
       btn.addEventListener('click', onQuestionClick);
       
