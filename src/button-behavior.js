@@ -1,5 +1,5 @@
 let count = 0; // 记数用户的疑惑
-let countVedio = 0; // 记数视频中的疑惑总量(能获取到的弹幕池, 可能不等于真正的全量弹幕池)
+
 let isCooling = false;
 let cooldownEnd = 0; // 冷却结束的时间点（毫秒时间戳）
 
@@ -95,34 +95,6 @@ function sendDanmaku(text) {
   }))
 }
 
-async function countQuestionDanmaku() {
-  // BVID（/video/BVxxx/ → 取第 2 段）
-  const bvid = location.pathname.split('/')[2];
-
-  // CID
-  const cid = (await (await fetch('https://api.bilibili.com/x/player/pagelist?bvid=' + bvid)).json()).data[0].cid;
-
-  // xmlText - fetch到 xml 转为 text 文本存入 xmlText
-  const xmlText = await (await fetch('https://comment.bilibili.com/' + cid + '.xml')).text();
-
-  // doc - 将 xmlText 转为 DOM
-  const doc = new DOMParser().parseFromString(xmlText, 'text/xml');
-
-  // ds - 选出 doc(DOM) 中的所有 d 标签, 存入类数组 ds
-  const ds = doc.querySelectorAll('d');
-  console.log('当前弹幕池中的总弹幕数:' + ds.length);
-
-  // 数问号
-  countVedio = 0;
-  ds.forEach(item => {
-    if (/^[？?]+$/.test(item.textContent)) { // 正则判断 item 是否只有问号构成
-      countVedio++;
-      console.log('问号弹幕：', item.textContent);
-    }
-  })
-  document.getElementById('plugin-question-count').textContent = countVedio; // 改数字
-  console.log('当前弹幕池中的疑惑数:' + countVedio);
-}
 
 
 
