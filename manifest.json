@@ -30,6 +30,7 @@
         "src/mystyles.css" 
       ],
       "js": [
+        "src/count-question-danmaku.js",
         "src/button-behavior.js",
         "src/content.js"
       ],
