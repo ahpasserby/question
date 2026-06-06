@@ -210,5 +210,3 @@ function ensureQuestionBtn() {
   // 事件绑定
   btn.addEventListener('click', onQuestionClick);
 }
-
-// test amend
